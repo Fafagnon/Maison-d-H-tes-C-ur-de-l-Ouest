@@ -1,0 +1,58 @@
+
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "images" # Où les nouvelles photos seront téléchargées
+public_folder: "images"
+
+collections:
+  - name: "content"
+    label: "Contenu du Site"
+    files:
+      - file: "data.json"
+        label: "Données Globales"
+        name: "data"
+        fields:
+          - { label: "Infos Site", name: "site", widget: "object", fields: [
+              { label: "Nom de l'établissement", name: "nom", widget: "string" },
+              { label: "Ville / Quartier", name: "ville", widget: "string" },
+              { label: "Description courte", name: "description", widget: "text" },
+              { label: "Slogan Hero", name: "slogan", widget: "string" },
+              { label: "Image d'accueil", name: "heroImage", widget: "image" }
+            ]}
+          
+          - { label: "Chambres", name: "chambres", widget: "list", fields: [
+              { label: "ID", name: "id", widget: "number" },
+              { label: "Nom de la chambre", name: "nom", widget: "string" },
+              { label: "Image principale", name: "image", widget: "image" },
+              { label: "Description", name: "description", widget: "text" },
+              { label: "Prix par nuit", name: "prix", widget: "string" },
+              { label: "Commodités", name: "commodites", widget: "list" }
+            ]}
+
+          - { label: "Services", name: "services", widget: "list", fields: [
+              { label: "Nom du service", name: "nom", widget: "string" },
+              { label: "Icône (nom Lucide icon)", name: "icone", widget: "string" },
+              { label: "Description", name: "description", widget: "string" }
+            ]}
+
+          - { label: "Galerie Photo", name: "galerie", widget: "list", fields: [
+              { label: "Image", name: "url", widget: "image" },
+              { label: "Texte alternatif", name: "alt", widget: "string" },
+              { label: "Catégorie", name: "categorie", widget: "select", options: ["Chambres", "Extérieur", "Lieu"] }
+            ]}
+
+          - { label: "Contact", name: "contact", widget: "object", fields: [
+              { label: "WhatsApp (format international)", name: "whatsapp", widget: "string" },
+              { label: "Téléphone", name: "telephone", widget: "string" },
+              { label: "Email", name: "email", widget: "string" },
+              { label: "Adresse physique", name: "adresse", widget: "string" },
+              { label: "URL Google Maps (Embed)", name: "mapUrl", widget: "string" }
+            ]}
+
+          - { label: "À Propos", name: "apropos", widget: "object", fields: [
+              { label: "Notre Histoire", name: "histoire", widget: "text" },
+              { label: "Notre Mission", name: "mission", widget: "text" },
+              { label: "Image de présentation", name: "image", widget: "image" }
+            ]}
