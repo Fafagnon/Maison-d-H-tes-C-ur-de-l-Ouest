@@ -1,5 +1,5 @@
----
 title: "Chambre 5"
+hidden: true
 album_id: "chambre-5"
 cover: "/images/avepozo/chambre 5 (1).jpg"
 overlay_text: "Découvrir la Chambre 5"

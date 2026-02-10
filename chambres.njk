@@ -33,6 +33,16 @@ description: Découvrez nos 4 chambres confortables à la Maison d'hôte Cœur d
                 <div class="chambre-card">
                     <div class="chambre-image">
                         <img src="{{ chambre.data.image }}" alt="{{ chambre.data.title }}" loading="lazy">
+                        <button class="btn-voir-plus" aria-label="Voir plus de photos">
+                            <i class="fas fa-camera"></i> Voir plus
+                        </button>
+                        {% if chambre.data.photos %}
+                        <div class="hidden-photos" style="display: none;">
+                            {% for photo in chambre.data.photos %}
+                            <img src="{{ photo }}" alt="{{ chambre.data.title }}">
+                            {% endfor %}
+                        </div>
+                        {% endif %}
                     </div>
                     <div class="chambre-content">
                         <h3>{{ chambre.data.title }}</h3>

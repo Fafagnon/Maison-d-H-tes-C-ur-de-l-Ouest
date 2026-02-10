@@ -29,6 +29,7 @@ description: Galerie photos de la Maison d'hôte Cœur de l'Ouest - Découvrez n
 
             <div class="galerie-grid">
                 {% for album in collections.albums %}
+                {% if not album.data.hidden %}
                 <div class="galerie-item" data-album="{{ album.data.album_id }}">
                     <img src="{{ album.data.cover }}" alt="{{ album.data.title }}" loading="lazy">
                     <div class="galerie-overlay">
@@ -41,6 +42,7 @@ description: Galerie photos de la Maison d'hôte Cœur de l'Ouest - Découvrez n
                         {% endfor %}
                     </div>
                 </div>
+                {% endif %}
                 {% endfor %}
             </div>
         </div>

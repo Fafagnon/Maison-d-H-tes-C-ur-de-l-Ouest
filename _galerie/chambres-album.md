@@ -1,5 +1,5 @@
----
 title: "Nos Chambres"
+hidden: true
 album_id: "chambres"
 cover: "/images/avepozo/chambre 4 (2).JPG"
 overlay_text: "Nos Chambres"

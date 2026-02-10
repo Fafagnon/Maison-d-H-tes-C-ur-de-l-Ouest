@@ -135,10 +135,12 @@ function initCarousel() {
 // GALERIE INTERACTIVE
 // ========================================
 function initGalerie() {
+    // Sélectionner à la fois les items de galerie et les boutons "Voir plus" des chambres
     const galerieItems = document.querySelectorAll('.galerie-item');
+    const chambreItems = document.querySelectorAll('.chambre-card .chambre-image');
     const lightbox = document.querySelector('.lightbox');
 
-    if (!lightbox || galerieItems.length === 0) return;
+    if (!lightbox) return;
 
     const lightboxImg = lightbox.querySelector('img');
     const lightboxClose = lightbox.querySelector('.lightbox-close');
