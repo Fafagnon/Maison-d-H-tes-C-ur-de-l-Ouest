@@ -1,23 +1,24 @@
 {
-  "name": "maison-d'hôte-cœur-de-l'ouest",
-  "private": true,
-  "version": "0.0.0",
-  "type": "module",
+  "name": "maison-d-h-tes-c-ur-de-l-ouest",
+  "version": "1.0.0",
+  "description": "",
+  "main": ".eleventy.js",
   "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "preview": "vite preview"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "eleventy --serve"
   },
-  "dependencies": {
-    "lucide-react": "^0.563.0",
-    "react": "^19.2.4",
-    "react-dom": "^19.2.4",
-    "react-router-dom": "^7.13.0"
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Fafagnon/Maison-d-H-tes-C-ur-de-l-Ouest.git"
   },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Fafagnon/Maison-d-H-tes-C-ur-de-l-Ouest/issues"
+  },
+  "homepage": "https://github.com/Fafagnon/Maison-d-H-tes-C-ur-de-l-Ouest#readme",
   "devDependencies": {
-    "@types/node": "^22.14.0",
-    "@vitejs/plugin-react": "^5.0.0",
-    "typescript": "~5.8.2",
-    "vite": "^6.2.0"
+    "@11ty/eleventy": "^3.1.2"
   }
 }

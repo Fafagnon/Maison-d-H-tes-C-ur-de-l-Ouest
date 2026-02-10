@@ -1,0 +1,67 @@
+---
+layout: base.njk
+title: Nos Chambres
+description: Découvrez nos 4 chambres confortables à la Maison d'hôte Cœur de l'Ouest - Lomé, AVEPOZO.
+---
+
+    <!-- HERO SECTION -->
+    <section class="hero" style="min-height: 400px;">
+        <div class="carousel">
+            <div class="carousel-slide active">
+                <img src="/images/avepozo/terasse (5).jpg" alt="Nos chambres">
+            </div>
+        </div>
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1>Nos Chambres</h1>
+            <p class="hero-subtitle">4 chambres confortables avec salon, cuisine équipée, machine à laver et groupe
+                électrogène à votre disposition.</p>
+        </div>
+    </section>
+
+    <!-- SECTION CHAMBRES -->
+    <section>
+        <div class="container">
+            <div class="section-header">
+                <span class="subtitle">Hébergement</span>
+                <h2>Choisissez votre chambre</h2>
+                <p>Toutes nos chambres sont équipées pour vous garantir un séjour agréable</p>
+            </div>
+
+            <div class="chambres-grid">
+                {% for chambre in collections.chambres %}
+                <div class="chambre-card">
+                    <div class="chambre-image">
+                        <img src="{{ chambre.data.image }}" alt="{{ chambre.data.title }}" loading="lazy">
+                    </div>
+                    <div class="chambre-content">
+                        <h3>{{ chambre.data.title }}</h3>
+                        <p>{{ chambre.data.description }}</p>
+                        <div class="equipements-list">
+                            {% for equipement in chambre.data.equipements %}
+                            <span class="equipement-tag"><i class="fas fa-check"></i> {{ equipement }}</span>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION CTA -->
+    <section class="bg-beige">
+        <div class="container text-center">
+            <h2>Prêt à réserver votre chambre ?</h2>
+            <p style="font-size: 1.15rem; margin-bottom: 2rem;">
+                Contactez-nous dès maintenant pour vérifier les disponibilités et effectuer votre réservation.
+            </p>
+            <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+                <a href="/#contact" class="btn btn-primary">Formulaire de contact</a>
+                <a href="#" class="btn-whatsapp btn">
+                    <span><i class="fab fa-whatsapp"></i></span>
+                    <span>WhatsApp</span>
+                </a>
+            </div>
+        </div>
+    </section>

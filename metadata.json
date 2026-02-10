@@ -1,7 +1,0 @@
-{
-  "name": "Maison d'hôte Cœur de l'Ouest",
-  "description": "Site vitrine moderne et responsive pour une maison d'hôte située à Lomé (Avepozo), Togo, avec gestion dynamique des contenus via JSON.",
-  "requestFramePermissions": [
-    "geolocation"
-  ]
-}

@@ -1,0 +1,71 @@
+---
+layout: base.njk
+title: Galerie Photos
+description: Galerie photos de la Maison d'hôte Cœur de l'Ouest - Découvrez nos espaces et installations.
+---
+
+    <!-- HERO SECTION -->
+    <section class="hero" style="min-height: 400px;">
+        <div class="carousel">
+            <div class="carousel-slide active">
+                <img src="/images/avepozo/salon (20).jpg" alt="Galerie photos">
+            </div>
+        </div>
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1>Notre Galerie</h1>
+            <p class="hero-subtitle">Découvrez notre maison d'hôtes en images</p>
+        </div>
+    </section>
+
+    <!-- SECTION GALERIE -->
+    <section>
+        <div class="container">
+            <div class="section-header">
+                <span class="subtitle">Photos</span>
+                <h2>Explorez nos espaces</h2>
+                <p>Parcourez notre galerie pour découvrir l'ambiance chaleureuse de notre maison d'hôtes</p>
+            </div>
+
+            <div class="galerie-grid">
+                {% for album in collections.albums %}
+                <div class="galerie-item" data-album="{{ album.data.album_id }}">
+                    <img src="{{ album.data.cover }}" alt="{{ album.data.title }}" loading="lazy">
+                    <div class="galerie-overlay">
+                        <span>{{ album.data.overlay_text }}<br><small>(Cliquez pour voir)</small></span>
+                    </div>
+                    <!-- Photos cachées de l'album -->
+                    <div class="hidden-photos" style="display: none;">
+                        {% for photo in album.data.photos %}
+                        <img src="{{ photo }}" alt="{{ album.data.title }}">
+                        {% endfor %}
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+
+    <!-- LIGHTBOX -->
+    <div class="lightbox">
+        <div class="lightbox-content">
+            <button class="lightbox-close" aria-label="Fermer">&times;</button>
+            <button class="lightbox-prev" aria-label="Précédent">&#10094;</button>
+            <img src="" alt="">
+            <button class="lightbox-next" aria-label="Suivant">&#10095;</button>
+        </div>
+    </div>
+
+    <!-- SECTION CTA -->
+    <section class="bg-beige">
+        <div class="container text-center">
+            <h2>Venez découvrir notre maison d'hôtes</h2>
+            <p style="font-size: 1.15rem; margin-bottom: 2rem;">
+                Réservez dès maintenant votre séjour dans notre établissement
+            </p>
+            <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+                <a href="/chambres/" class="btn btn-primary">Nos chambres</a>
+                <a href="/#contact" class="btn btn-secondary">Nous contacter</a>
+            </div>
+        </div>
+    </section>
