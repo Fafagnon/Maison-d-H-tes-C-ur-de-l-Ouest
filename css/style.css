@@ -285,6 +285,17 @@ nav {
   border: 2px solid var(--vert-principal);
 }
 
+.hero .btn-secondary {
+  color: var(--blanc);
+  border-color: var(--blanc);
+}
+
+.hero .btn-secondary:hover {
+  background-color: var(--vert-principal);
+  border-color: var(--vert-principal);
+  color: var(--blanc);
+}
+
 .btn-secondary:hover {
   background-color: var(--vert-principal);
   color: var(--blanc);
@@ -803,6 +814,7 @@ section {
   justify-content: center;
   font-size: 1.5rem;
   flex-shrink: 0;
+  color: var(--blanc);
 }
 
 .info-details h4 {
