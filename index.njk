@@ -195,6 +195,34 @@ availability:
                     <textarea id="message" name="message" required placeholder="Votre message..."></textarea>
                 </div>
 
+                <div class="form-group">
+                    <label>Chambres souhaitées</label>
+                    <div class="checkbox-group">
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="chambres" value="Chambre 1"> Chambre 1
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="chambres" value="Chambre 2"> Chambre 2
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="chambres" value="Chambre 3"> Chambre 3
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="chambres" value="Chambre 4"> Chambre 4
+                        </label>
+                         <label class="checkbox-label">
+                            <input type="checkbox" name="chambres" value="Chambre 5"> Chambre 5
+                        </label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="checkbox-label confirmation-label">
+                        <input type="checkbox" id="confirmation" name="confirmation" required>
+                        <strong>Je confirme vouloir réserver ce séjour</strong>
+                    </label>
+                </div>
+
                 <button type="submit" class="btn btn-primary"><i class="fab fa-whatsapp"></i> Réserver via WhatsApp</button>
                 <input type="hidden" id="whatsapp-number" value="{{ contact.whatsapp_number }}">
                 <p id="form-status" style="margin-top: 1rem; display: none;"></p>
@@ -214,7 +242,7 @@ availability:
                     <div class="info-details">
                         <h4>WhatsApp</h4>
                         <p><a href="#" class="btn-whatsapp"
-                                style="display: inline; border: none; background: none; padding: 0; color: var(--rouge-accent);">Nous
+                                style="display: inline; border: none; background: none; padding: 0; color: var(--rouge-accent); box-shadow: none;">Nous
                                 contacter</a></p>
                     </div>
                 </div>
