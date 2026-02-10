@@ -88,7 +88,7 @@ contact:
             </div>
 
             <div class="chambres-grid">
-                {% for chambre in collections.chambres | slice(0, 3) %}
+                {% for chambre in collections.chambres | slice(0, 6) %}
                 <div class="chambre-card">
                     <div class="chambre-image">
                         <img src="{{ chambre.data.image }}" alt="{{ chambre.data.title }}" loading="lazy">
