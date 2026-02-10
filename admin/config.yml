@@ -12,9 +12,6 @@ collections:
       - file: "index.njk"
         label: "Accueil"
         name: "index"
-      - file: "index.njk"
-        label: "Accueil"
-        name: "index"
         fields:
           - {label: "Titre", name: "title", widget: "string", required: false}
           - {label: "Description SEO", name: "description", widget: "text", required: false}
