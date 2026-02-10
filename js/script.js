@@ -322,7 +322,16 @@ function initContactForm() {
 
         // Récupérer le numéro configuré ou utiliser celui par défaut
         const whatsappInput = document.getElementById('whatsapp-number');
-        const whatsappNumber = whatsappInput && whatsappInput.value ? whatsappInput.value : '22890051481';
+        const whatsappNumber = whatsappInput && whatsappInput.value ? whatsappInput.value : '22890229652';
+
+        // Récupérer les chambres sélectionnées
+        const chambresSelected = [];
+        document.querySelectorAll('input[name="chambres"]:checked').forEach(checkbox => {
+            chambresSelected.push(checkbox.value);
+        });
+
+        // Récupérer la confirmation
+        const isConfirmed = document.getElementById('confirmation').checked;
 
         // Construire le message WhatsApp
         let text = `*Nouvelle Demande de Réservation* 🏨\n\n`;
@@ -331,7 +340,16 @@ function initContactForm() {
         if (telephone) text += `📞 *Tél:* ${telephone}\n`;
         text += `📅 *Du:* ${arrivee}\n`;
         text += `📅 *Au:* ${depart}\n\n`;
-        text += `📝 *Message:* ${message}`;
+
+        if (chambresSelected.length > 0) {
+            text += `🛏️ *Chambres souhaitées:* ${chambresSelected.join(', ')}\n\n`;
+        }
+
+        text += `📝 *Message:* ${message}\n\n`;
+
+        if (isConfirmed) {
+            text += `✅ *Réservation confirmée par le client*`;
+        }
 
         // Encoder et ouvrir WhatsApp
         const encodedText = encodeURIComponent(text);
@@ -408,7 +426,7 @@ document.querySelectorAll('a[href^="#"]').forEach(function (anchor) {
 // ========================================
 function initWhatsAppButtons() {
     const whatsappButtons = document.querySelectorAll('.btn-whatsapp');
-    const whatsappNumber = '22890051481'; // À remplacer par le vrai numéro
+    const whatsappNumber = '22890229652'; // À remplacer par le vrai numéro
 
     whatsappButtons.forEach(function (btn) {
         btn.addEventListener('click', function (e) {

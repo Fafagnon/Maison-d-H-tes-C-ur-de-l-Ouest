@@ -798,12 +798,48 @@ section {
 .info-card {
   background-color: var(--blanc);
   padding: var(--spacing-md);
-  border-radius: var(--radius-md);
-  box-shadow: var(--shadow-sm);
+  /* ... existing code ... */
+}
+
+/* Styles pour les checkboxes du formulaire */
+.checkbox-group {
+  display: FLEX;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 0.5rem;
+}
+
+.checkbox-label {
   display: flex;
   align-items: center;
-  gap: var(--spacing-sm);
-  transition: var(--transition);
+  gap: 0.5rem;
+  cursor: pointer;
+  font-size: 0.95rem;
+}
+
+.checkbox-label input[type="checkbox"] {
+  width: auto;
+  /* Reset width from 100% applied to other inputs */
+  margin: 0;
+  accent-color: var(--vert-principal);
+  width: 1.2rem;
+  height: 1.2rem;
+}
+
+.confirmation-label {
+  margin-top: 1rem;
+  padding: 1rem;
+  background-color: rgba(107, 163, 104, 0.1);
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--vert-principal);
+}
+
+border-radius: var(--radius-md);
+box-shadow: var(--shadow-sm);
+display: flex;
+align-items: center;
+gap: var(--spacing-sm);
+transition: var(--transition);
 }
 
 .info-card:hover {

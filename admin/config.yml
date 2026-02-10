@@ -65,7 +65,7 @@ collections:
               - {label: "Surtitre", name: "subtitle", widget: "string"}
               - {label: "Titre", name: "title", widget: "string"}
               - {label: "Texte", name: "text", widget: "text"}
-              - {label: "Numéro WhatsApp pour Réservation (sans + ni espaces)", name: "whatsapp_number", widget: "string", default: "22890051481"}
+              - {label: "Numéro WhatsApp pour Réservation (sans + ni espaces)", name: "whatsapp_number", widget: "string", default: "22890229652"}
               - {label: "Code Formspree (Optionnel)", name: "formspree_url", widget: "string", required: false}
           - label: "Disponibilité"
             name: "availability"
