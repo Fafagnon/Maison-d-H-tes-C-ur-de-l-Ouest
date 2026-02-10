@@ -73,14 +73,7 @@ collections:
                   - {label: "Icône (FontAwesome)", name: "icon", widget: "string", hint: "ex: fas fa-home"}
                   - {label: "Titre", name: "title", widget: "string"}
                   - {label: "Description", name: "text", widget: "string"}
-          - label: "Section Contact"
-            name: "contact"
-            widget: "object"
-            fields:
-              - {label: "Surtitre", name: "subtitle", widget: "string"}
-              - {label: "Titre", name: "title", widget: "string"}
-              - {label: "Texte Intro", name: "text", widget: "text"}
-              - {label: "Email Formspree", name: "formspree_url", widget: "string"}
+
       - file: "chambres.njk"
         label: "Chambres (Page)"
         name: "chambres"
