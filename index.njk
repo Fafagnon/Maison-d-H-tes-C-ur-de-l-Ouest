@@ -37,6 +37,7 @@ contact:
   subtitle: "Contactez-nous"
   title: "Réservez votre séjour"
   text: "Nous sommes à votre disposition pour toute question ou réservation"
+  whatsapp_number: "22890051481"
   formspree_url: "https://formspree.io/f/VOTRE_CODE_FORMSPREE_ICI"
 ---
     <!-- HERO SECTION AVEC CARROUSEL -->
@@ -160,12 +161,24 @@ contact:
                     <input type="tel" id="telephone" name="phone" placeholder="+228 XX XX XX XX">
                 </div>
 
+                <div class="form-row" style="display: flex; gap: 1rem; flex-wrap: wrap;">
+                    <div class="form-group" style="flex: 1; min-width: 200px;">
+                        <label for="date-arrivee">Date d'arrivée</label>
+                        <input type="date" id="date-arrivee" name="date_arrivee" required>
+                    </div>
+                    <div class="form-group" style="flex: 1; min-width: 200px;">
+                        <label for="date-depart">Date de départ</label>
+                        <input type="date" id="date-depart" name="date_depart" required>
+                    </div>
+                </div>
+
                 <div class="form-group">
                     <label for="message">Message *</label>
                     <textarea id="message" name="message" required placeholder="Votre message..."></textarea>
                 </div>
 
-                <button type="submit" class="btn btn-primary">Envoyer le message</button>
+                <button type="submit" class="btn btn-primary"><i class="fab fa-whatsapp"></i> Réserver via WhatsApp</button>
+                <input type="hidden" id="whatsapp-number" value="{{ contact.whatsapp_number }}">
                 <p id="form-status" style="margin-top: 1rem; display: none;"></p>
             </form>
 

@@ -262,45 +262,35 @@ function initContactForm() {
 
     if (!contactForm) return;
 
-    const status = document.getElementById("form-status");
-
     contactForm.addEventListener('submit', function (e) {
         e.preventDefault();
 
-        const data = new FormData(contactForm);
-        const action = contactForm.action;
+        // Récupérer les données
+        const nom = document.getElementById('nom').value;
+        const email = document.getElementById('email').value;
+        const telephone = document.getElementById('telephone').value;
+        const arrivee = document.getElementById('date-arrivee').value;
+        const depart = document.getElementById('date-depart').value;
+        const message = document.getElementById('message').value;
 
-        // Afficher message de chargement
-        status.style.display = "block";
-        status.style.color = "var(--vert-fonce)";
-        status.innerHTML = "<i class='fas fa-spinner fa-spin'></i> Envoi en cours...";
+        // Récupérer le numéro configuré ou utiliser celui par défaut
+        const whatsappInput = document.getElementById('whatsapp-number');
+        const whatsappNumber = whatsappInput && whatsappInput.value ? whatsappInput.value : '22890051481';
 
-        fetch(action, {
-            method: contactForm.method,
-            body: data,
-            headers: {
-                'Accept': 'application/json'
-            }
-        }).then(response => {
-            if (response.ok) {
-                status.style.color = "green";
-                status.innerHTML = "<i class='fas fa-check-circle'></i> Merci ! Votre message a bien été envoyé.";
-                contactForm.reset();
-            } else {
-                response.json().then(data => {
-                    if (Object.hasOwn(data, 'errors')) {
-                        status.style.color = "red";
-                        status.innerHTML = data["errors"].map(error => error["message"]).join(", ");
-                    } else {
-                        status.style.color = "red";
-                        status.innerHTML = "Oups ! Une erreur s'est produite lors de l'envoi.";
-                    }
-                })
-            }
-        }).catch(error => {
-            status.style.color = "red";
-            status.innerHTML = "Oups ! Une erreur s'est produite lors de l'envoi.";
-        });
+        // Construire le message WhatsApp
+        let text = `*Nouvelle Demande de Réservation* 🏨\n\n`;
+        text += `👤 *Nom:* ${nom}\n`;
+        text += `📧 *Email:* ${email}\n`;
+        if (telephone) text += `📞 *Tél:* ${telephone}\n`;
+        text += `📅 *Du:* ${arrivee}\n`;
+        text += `📅 *Au:* ${depart}\n\n`;
+        text += `📝 *Message:* ${message}`;
+
+        // Encoder et ouvrir WhatsApp
+        const encodedText = encodeURIComponent(text);
+        const url = `https://wa.me/${whatsappNumber}?text=${encodedText}`;
+
+        window.open(url, '_blank');
     });
 }
 
