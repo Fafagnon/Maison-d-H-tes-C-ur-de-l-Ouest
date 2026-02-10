@@ -13,75 +13,66 @@ collections:
         label: "Accueil"
         name: "index"
         fields:
-          - {label: "Titre", name: "title", widget: "string", required: false}
-          - {label: "Description SEO", name: "description", widget: "text", required: false}
+          - {label: "Titre", name: "title", widget: "string"}
+          - {label: "Description SEO", name: "description", widget: "text"}
           - label: "Hero (Carrousel)"
             name: "hero"
             widget: "object"
-            required: false
             fields:
-              - {label: "Titre Principal", name: "title", widget: "string", required: false}
-              - {label: "Sous-titre", name: "subtitle", widget: "string", required: false}
+              - {label: "Titre Principal", name: "title", widget: "string"}
+              - {label: "Sous-titre", name: "subtitle", widget: "string"}
               - label: "Images du Carrousel"
                 name: "carousel_images"
                 widget: "list"
-                required: false
                 fields:
-                  - {label: "Image", name: "image", widget: "image", required: false}
+                  - {label: "Image", name: "image", widget: "image"}
               - label: "Bouton 1 (Primaire)"
                 name: "cta_primary"
                 widget: "object"
-                required: false
                 fields:
-                  - {label: "Texte", name: "text", widget: "string", required: false}
-                  - {label: "Lien", name: "link", widget: "string", required: false}
+                  - {label: "Texte", name: "text", widget: "string"}
+                  - {label: "Lien", name: "link", widget: "string"}
               - label: "Bouton 2 (Secondaire)"
                 name: "cta_secondary"
                 widget: "object"
-                required: false
                 fields:
-                  - {label: "Texte", name: "text", widget: "string", required: false}
-                  - {label: "Lien", name: "link", widget: "string", required: false}
-          - label: "Disponibilité"
-            name: "availability"
-            widget: "object"
-            required: false
-            fields:
-              - {label: "Statut", name: "status", widget: "select", options: ["Disponible", "Occupé"], default: "Disponible", required: false}
-              - {label: "Occupé jusqu'au (si occupé)", name: "until_date", widget: "date", format: "YYYY-MM-DD", required: false}
-          - label: "Section Contact"
-            name: "contact"
-            widget: "object"
-            required: false
-            fields:
-              - {label: "Surtitre", name: "subtitle", widget: "string", required: false}
-              - {label: "Titre", name: "title", widget: "string", required: false}
-              - {label: "Texte", name: "text", widget: "text", required: false}
-              - {label: "Numéro WhatsApp pour Réservation (sans + ni espaces)", name: "whatsapp_number", widget: "string", default: "22890051481", required: false}
-              - {label: "Code Formspree (Optionnel)", name: "formspree_url", widget: "string", required: false}
+                  - {label: "Texte", name: "text", widget: "string"}
+                  - {label: "Lien", name: "link", widget: "string"}
           - label: "Section Bienvenue"
             name: "welcome"
             widget: "object"
-            required: false
             fields:
-              - {label: "Surtitre", name: "subtitle", widget: "string", required: false}
-              - {label: "Titre", name: "title", widget: "string", required: false}
-              - {label: "Texte", name: "text", widget: "text", required: false}
+              - {label: "Surtitre", name: "subtitle", widget: "string"}
+              - {label: "Titre", name: "title", widget: "string"}
+              - {label: "Texte", name: "text", widget: "text"}
           - label: "Section Avantages"
             name: "features"
             widget: "object"
-            required: false
             fields:
-              - {label: "Surtitre", name: "subtitle", widget: "string", required: false}
-              - {label: "Titre", name: "title", widget: "string", required: false}
+              - {label: "Surtitre", name: "subtitle", widget: "string"}
+              - {label: "Titre", name: "title", widget: "string"}
               - label: "Liste des avantages"
                 name: "items"
                 widget: "list"
-                required: false
                 fields:
-                  - {label: "Icône (FontAwesome)", name: "icon", widget: "string", hint: "ex: fas fa-home", required: false}
-                  - {label: "Titre", name: "title", widget: "string", required: false}
-                  - {label: "Description", name: "text", widget: "string", required: false}
+                  - {label: "Icône (FontAwesome)", name: "icon", widget: "string", hint: "ex: fas fa-home"}
+                  - {label: "Titre", name: "title", widget: "string"}
+                  - {label: "Description", name: "text", widget: "string"}
+          - label: "Section Contact"
+            name: "contact"
+            widget: "object"
+            fields:
+              - {label: "Surtitre", name: "subtitle", widget: "string"}
+              - {label: "Titre", name: "title", widget: "string"}
+              - {label: "Texte", name: "text", widget: "text"}
+              - {label: "Numéro WhatsApp pour Réservation (sans + ni espaces)", name: "whatsapp_number", widget: "string", default: "22890051481"}
+              - {label: "Code Formspree (Optionnel)", name: "formspree_url", widget: "string", required: false}
+          - label: "Disponibilité"
+            name: "availability"
+            widget: "object"
+            fields:
+              - {label: "Statut", name: "status", widget: "select", options: ["Disponible", "Occupé"], default: "Disponible"}
+              - {label: "Occupé jusqu'au (si occupé)", name: "until_date", widget: "date", format: "YYYY-MM-DD", required: false}
 
       - file: "chambres.njk"
         label: "Chambres (Page)"
