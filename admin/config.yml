@@ -25,7 +25,8 @@ collections:
               - label: "Images du Carrousel"
                 name: "carousel_images"
                 widget: "list"
-                field: {label: "Image", name: "image", widget: "image"}
+                fields:
+                  - {label: "Image", name: "image", widget: "image"}
               - label: "Bouton 1 (Primaire)"
                 name: "cta_primary"
                 widget: "object"
