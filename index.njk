@@ -2,41 +2,68 @@
 layout: base.njk
 title: Accueil
 description: Maison d'hôte Cœur de l'Ouest - Votre havre de paix à Lomé, quartier AVEPOZO. Chambres confortables, accueil chaleureux.
+hero:
+  title: "Maison d'hôte Cœur de l'Ouest"
+  subtitle: "Votre havre de paix au cœur de Lomé"
+  carousel_images:
+    - image: "/images/avepozo/facade (2).JPG"
+    - image: "/images/avepozo/salon (5).jpg"
+    - image: "/images/avepozo/terasse (5).jpg"
+    - image: "/images/avepozo/salon (17).jpg"
+  cta_primary:
+    text: "Découvrir nos chambres"
+    link: "/chambres/"
+  cta_secondary:
+    text: "Nous contacter"
+    link: "#contact"
+welcome:
+  subtitle: "Bienvenue"
+  title: "Un séjour inoubliable à Lomé"
+  text: "Située dans le paisible quartier d'AVEPOZO à Lomé, notre maison d'hôtes vous offre un hébergement confortable et chaleureux. Profitez d'un cadre accueillant avec toutes les commodités nécessaires pour un séjour mémorable au Togo."
+features:
+  subtitle: "Pourquoi nous choisir"
+  title: "Votre confort est notre priorité"
+  items:
+    - icon: "fas fa-map-marker-alt"
+      title: "Emplacement idéal"
+      text: "Quartier calme et sécurisé d'AVEPOZO à Lomé"
+    - icon: "fas fa-home"
+      title: "Accueil chaleureux"
+      text: "Service personnalisé et ambiance familiale"
+    - icon: "fas fa-dumbbell"
+      title: "Salle de sport équipée"
+      text: "Restez en forme pendant votre séjour dans notre espace fitness"
+contact:
+  subtitle: "Contactez-nous"
+  title: "Réservez votre séjour"
+  text: "Nous sommes à votre disposition pour toute question ou réservation"
+  formspree_url: "https://formspree.io/f/VOTRE_CODE_FORMSPREE_ICI"
 ---
-
     <!-- HERO SECTION AVEC CARROUSEL -->
     <section class="hero">
         <div class="carousel">
-            <div class="carousel-slide active">
-                <img src="/images/avepozo/facade (2).JPG" alt="Vue extérieure de la maison d'hôte">
+            {% for item in hero.carousel_images %}
+            <div class="carousel-slide {% if loop.first %}active{% endif %}">
+                <img src="{{ item.image }}" alt="Vue de la maison d'hôte">
             </div>
-            <div class="carousel-slide">
-                <img src="/images/avepozo/salon (5).jpg" alt="Salon convivial">
-            </div>
-            <div class="carousel-slide">
-                <img src="/images/avepozo/terasse (5).jpg" alt="Terrasse ensoleillée">
-            </div>
-            <div class="carousel-slide">
-                <img src="/images/avepozo/salon (17).jpg" alt="Ambiance chaleureuse">
-            </div>
+            {% endfor %}
         </div>
 
         <div class="hero-overlay"></div>
 
         <div class="hero-content">
-            <h1>Maison d'hôte Cœur de l'Ouest</h1>
-            <p class="hero-subtitle">Votre havre de paix au cœur de Lomé</p>
+            <h1>{{ hero.title }}</h1>
+            <p class="hero-subtitle">{{ hero.subtitle }}</p>
             <div class="hero-cta">
-                <a href="/chambres/" class="btn btn-primary">Découvrir nos chambres</a>
-                <a href="#contact" class="btn btn-secondary">Nous contacter</a>
+                <a href="{{ hero.cta_primary.link }}" class="btn btn-primary">{{ hero.cta_primary.text }}</a>
+                <a href="{{ hero.cta_secondary.link }}" class="btn btn-secondary">{{ hero.cta_secondary.text }}</a>
             </div>
         </div>
 
         <div class="carousel-dots">
-            <button class="active" aria-label="Image 1"></button>
-            <button aria-label="Image 2"></button>
-            <button aria-label="Image 3"></button>
-            <button aria-label="Image 4"></button>
+             {% for item in hero.carousel_images %}
+            <button class="{% if loop.first %}active{% endif %}" aria-label="Image {{ loop.index }}"></button>
+            {% endfor %}
         </div>
     </section>
 
@@ -44,13 +71,9 @@ description: Maison d'hôte Cœur de l'Ouest - Votre havre de paix à Lomé, qua
     <section>
         <div class="container">
             <div class="section-header">
-                <span class="subtitle">Bienvenue</span>
-                <h2>Un séjour inoubliable à Lomé</h2>
-                <p>
-                    Située dans le paisible quartier d'AVEPOZO à Lomé, notre maison d'hôtes vous offre
-                    un hébergement confortable et chaleureux. Profitez d'un cadre accueillant avec
-                    toutes les commodités nécessaires pour un séjour mémorable au Togo.
-                </p>
+                <span class="subtitle">{{ welcome.subtitle }}</span>
+                <h2>{{ welcome.title }}</h2>
+                <p>{{ welcome.text }}</p>
             </div>
         </div>
     </section>
@@ -65,56 +88,22 @@ description: Maison d'hôte Cœur de l'Ouest - Votre havre de paix à Lomé, qua
             </div>
 
             <div class="chambres-grid">
-                <!-- Carte 1 : Nuits Paisibles -->
+                {% for chambre in collections.chambres | slice(0, 3) %}
                 <div class="chambre-card">
                     <div class="chambre-image">
-                        <img src="/images/avepozo/chambre 2 (21).jpg" alt="Chambre Confortable" loading="lazy">
+                        <img src="{{ chambre.data.image }}" alt="{{ chambre.data.title }}" loading="lazy">
                     </div>
                     <div class="chambre-content">
-                        <h3>Des Nuits Paisibles</h3>
-                        <p>Dormez sur vos deux oreilles grâce à une literie de qualité, la climatisation et un
-                            environnement calme.</p>
+                        <h3>{{ chambre.data.title }}</h3>
+                        <p>{{ chambre.data.description }}</p>
                         <div class="equipements-list">
-                            <span class="equipement-tag"><i class="fas fa-bed"></i> Confort</span>
-                            <span class="equipement-tag"><i class="fas fa-snowflake"></i> Clim</span>
-                            <span class="equipement-tag"><i class="fas fa-wifi"></i> Fibre</span>
+                            {% for equipement in chambre.data.equipements %}
+                            <span class="equipement-tag"><i class="fas fa-check"></i> {{ equipement }}</span>
+                            {% endfor %}
                         </div>
                     </div>
                 </div>
-
-                <!-- Carte 2 : Comme à la Maison -->
-                <div class="chambre-card">
-                    <div class="chambre-image">
-                        <img src="/images/avepozo/salon (5).jpg" alt="Espaces de Vie" loading="lazy">
-                    </div>
-                    <div class="chambre-content">
-                        <h3>Comme à la Maison</h3>
-                        <p>Profitez d'un grand salon convivial, d'une cuisine équipée et d'une terrasse pour vos moments
-                            de partage.</p>
-                        <div class="equipements-list">
-                            <span class="equipement-tag"><i class="fas fa-couch"></i> Salon</span>
-                            <span class="equipement-tag"><i class="fas fa-utensils"></i> Cuisine</span>
-                            <span class="equipement-tag"><i class="fas fa-tv"></i> TV</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Carte 3 : Forme & Sérénité -->
-                <div class="chambre-card">
-                    <div class="chambre-image">
-                        <img src="/images/avepozo/gym (4).JPG" alt="Sport et Détente" loading="lazy">
-                    </div>
-                    <div class="chambre-content">
-                        <h3>Forme & Sérénité</h3>
-                        <p>Alliez détente et activité avec notre salle de sport moderne et notre jardin arboré sécurisé.
-                        </p>
-                        <div class="equipements-list">
-                            <span class="equipement-tag"><i class="fas fa-dumbbell"></i> Sport</span>
-                            <span class="equipement-tag"><i class="fas fa-tree"></i> Jardin</span>
-                            <span class="equipement-tag"><i class="fas fa-shield-alt"></i> Sûr</span>
-                        </div>
-                    </div>
-                </div>
+                {% endfor %}
             </div>
 
             <div class="text-center mt-2">
@@ -127,34 +116,20 @@ description: Maison d'hôte Cœur de l'Ouest - Votre havre de paix à Lomé, qua
     <section>
         <div class="container">
             <div class="section-header">
-                <span class="subtitle">Pourquoi nous choisir</span>
-                <h2>Votre confort est notre priorité</h2>
+                <span class="subtitle">{{ features.subtitle }}</span>
+                <h2>{{ features.title }}</h2>
             </div>
 
             <div class="contact-info">
+                {% for item in features.items %}
                 <div class="info-card">
-                    <div class="info-icon"><i class="fas fa-map-marker-alt"></i></div>
+                    <div class="info-icon"><i class="{{ item.icon }}"></i></div>
                     <div class="info-details">
-                        <h4>Emplacement idéal</h4>
-                        <p>Quartier calme et sécurisé d'AVEPOZO à Lomé</p>
+                        <h4>{{ item.title }}</h4>
+                        <p>{{ item.text }}</p>
                     </div>
                 </div>
-
-                <div class="info-card">
-                    <div class="info-icon"><i class="fas fa-home"></i></div>
-                    <div class="info-details">
-                        <h4>Accueil chaleureux</h4>
-                        <p>Service personnalisé et ambiance familiale</p>
-                    </div>
-                </div>
-
-                <div class="info-card">
-                    <div class="info-icon"><i class="fas fa-dumbbell"></i></div>
-                    <div class="info-details">
-                        <h4>Salle de sport équipée</h4>
-                        <p>Restez en forme pendant votre séjour dans notre espace fitness</p>
-                    </div>
-                </div>
+                {% endfor %}
             </div>
         </div>
     </section>
