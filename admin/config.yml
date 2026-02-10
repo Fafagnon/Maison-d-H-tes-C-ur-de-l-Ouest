@@ -38,6 +38,12 @@ collections:
                 fields:
                   - {label: "Texte", name: "text", widget: "string"}
                   - {label: "Lien", name: "link", widget: "string"}
+          - label: "Disponibilité"
+            name: "availability"
+            widget: "object"
+            fields:
+              - {label: "Statut", name: "status", widget: "select", options: ["Disponible", "Occupé"], default: "Disponible"}
+              - {label: "Occupé jusqu'au (si occupé)", name: "until_date", widget: "date", format: "YYYY-MM-DD", required: false}
           - label: "Section Contact"
             name: "contact"
             widget: "object"

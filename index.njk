@@ -39,9 +39,27 @@ contact:
   text: "Nous sommes à votre disposition pour toute question ou réservation"
   whatsapp_number: "22890051481"
   formspree_url: "https://formspree.io/f/VOTRE_CODE_FORMSPREE_ICI"
+availability:
+  status: "Disponible"
+  until_date: ""
 ---
     <!-- HERO SECTION AVEC CARROUSEL -->
     <section class="hero">
+        <!-- BANDEAU DISPONIBILITÉ -->
+        {% if availability %}
+        <div class="availability-banner {% if availability.status == 'Occupé' %}occupied{% else %}available{% endif %}">
+            <div class="container">
+                {% if availability.status == 'Occupé' %}
+                <i class="fas fa-calendar-times"></i>
+                <span>La maison est actuellement <strong>OCCUPÉE</strong> jusqu'au <strong>{{ availability.until_date | readableDate }}</strong></span>
+                {% else %}
+                <i class="fas fa-calendar-check"></i>
+                <span>La maison est actuellement <strong>LIBRE</strong> • Réservez votre séjour dès maintenant !</span>
+                {% endif %}
+            </div>
+        </div>
+        {% endif %}
+
         <div class="carousel">
             {% for item in hero.carousel_images %}
             <div class="carousel-slide {% if loop.first %}active{% endif %}">
