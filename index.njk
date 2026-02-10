@@ -3,7 +3,7 @@ layout: base.njk
 title: Accueil
 description: Maison d'hôte Cœur de l'Ouest - Votre havre de paix à Lomé, quartier AVEPOZO. Chambres confortables, accueil chaleureux.
 hero:
-  title: "Maison d'hôte Cœur de l'Ouest"
+  title: "Maison d'hôte<br><span class='hero-highlight'>Cœur de l'Ouest</span>"
   subtitle: "Votre havre de paix au cœur de Lomé"
   carousel_images:
     - image: "/images/avepozo/facade (2).JPG"
@@ -53,7 +53,7 @@ contact:
         <div class="hero-overlay"></div>
 
         <div class="hero-content">
-            <h1>{{ hero.title }}</h1>
+            <h1>{{ hero.title | safe }}</h1>
             <p class="hero-subtitle">{{ hero.subtitle }}</p>
             <div class="hero-cta">
                 <a href="{{ hero.cta_primary.link }}" class="btn btn-primary">{{ hero.cta_primary.text }}</a>
