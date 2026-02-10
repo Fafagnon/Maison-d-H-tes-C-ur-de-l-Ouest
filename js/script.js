@@ -187,6 +187,51 @@ function initGalerie() {
         });
     });
 
+    // Gestion pour les cartes chambres
+    if (chambreItems.length > 0) {
+        chambreItems.forEach(function (item) {
+            const voirPlusBtn = item.querySelector('.btn-voir-plus');
+
+            if (voirPlusBtn) {
+                voirPlusBtn.addEventListener('click', function (e) {
+                    e.preventDefault();
+
+                    // Récupérer l'image principale
+                    const mainImg = item.querySelector('img');
+
+                    // Récupérer les images cachées
+                    const hiddenPhotos = item.querySelectorAll('.hidden-photos img');
+
+                    // Construire la liste des images de l'album
+                    currentAlbumImages = [];
+
+                    // Ajouter les images cachées (priorité à celles-ci pour la galerie détaillée)
+                    hiddenPhotos.forEach(photo => {
+                        currentAlbumImages.push({
+                            src: photo.src,
+                            alt: photo.alt
+                        });
+                    });
+
+                    // Si pas d'images cachées, mettre au moins l'image principale
+                    if (currentAlbumImages.length === 0 && mainImg) {
+                        currentAlbumImages.push({
+                            src: mainImg.src,
+                            alt: mainImg.alt
+                        });
+                    }
+
+                    if (currentAlbumImages.length > 0) {
+                        currentImageIndex = 0;
+                        updateLightboxImage();
+                        lightbox.classList.add('active');
+                        document.body.style.overflow = 'hidden';
+                    }
+                });
+            }
+        });
+    }
+
     // Mettre à jour l'image affichée
     function updateLightboxImage() {
         if (currentAlbumImages.length === 0) return;
