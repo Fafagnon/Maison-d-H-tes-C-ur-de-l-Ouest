@@ -100,7 +100,7 @@ h6 {
 }
 
 h1 {
-  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  font-size: clamp(2rem, 5vw, 3.5rem);
   letter-spacing: -0.02em;
 }
 
@@ -409,7 +409,7 @@ nav {
 }
 
 .hero-highlight {
-  font-size: 1.4em;
+  font-size: 1.2em;
   display: block;
   margin-top: 0.2em;
 }
