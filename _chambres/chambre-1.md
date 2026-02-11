@@ -7,9 +7,9 @@ image: /images/avepozo/chambre 1 (8).JPG
 photos:
   - /images/avepozo/chambre 1 (8).JPG
   - /images/avepozo/chambre 1 (7).JPG
-  - /images/avepozo/chambre 1 (4).JPG
-  - /images/avepozo/chambre 1 (2).jpg
-  - /images/avepozo/chambre 1 (1).jpg
+  - /images/avepozo/chambre 1 (9).JPG
+  - /images/avepozo/chambre 1 (21).jpg
+  - /images/avepozo/chambre 1 (25).jpg
 equipements:
   - Chambre moderne équipée d’un lit double confortable
   - climatisation
